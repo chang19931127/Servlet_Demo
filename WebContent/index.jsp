@@ -8,6 +8,7 @@
 </head>
 <body>
 	<a href="admin?action=query">servlet 的操作 crud</a><br/>
-	<a href="adminDao?action=query">servlet Dao 之后的操作 crud</a>
+	<a href="adminDao?action=query">servlet Dao 之后的操作 crud</a><br/>
+	<a href="admin.html?action=pager">servlet Dao 之后的操作 page</a>
 </body>
 </html>

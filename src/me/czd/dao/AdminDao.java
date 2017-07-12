@@ -20,4 +20,8 @@ public interface AdminDao {
 	int delById(int id);
 
 	int updateAdmin(Admin admin);
+
+	public List<Admin> findByPage(int pageNo, int pageSize);
+
+	public int getTotalRecords();
 }

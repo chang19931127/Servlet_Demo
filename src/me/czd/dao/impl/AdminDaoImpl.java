@@ -12,6 +12,7 @@ import me.czd.db.DBConnection;
 /**
  * Dao 层的实现类
  * 
+ * 增加了分页的支持
  * @author Administrator
  *
  */
@@ -91,6 +92,45 @@ public class AdminDaoImpl implements AdminDao {
 		res = dbc.doUpdate(sql, new Object[] { admin.getUsername(), admin.getPassword(), admin.getId() });
 		dbc.close();
 		return res;
+	}
+
+	@Override
+	public List<Admin> findByPage(int pageNo, int pageSize) {
+		List<Admin> adminList = new ArrayList<>();
+		try {
+			int start = (pageNo - 1) * pageSize;
+			String sql = "SELECT * FROM admin LIMIT ?,?";
+			ResultSet rs = dbc.doQuery(sql, new Object[] { start, pageSize });
+			while (rs.next()) {
+				Admin admin = new Admin();
+				admin.setId(rs.getInt("id"));
+				admin.setUsername(rs.getString("username"));
+				admin.setPassword(rs.getString("password"));
+				adminList.add(admin);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dbc.close();
+		}
+		return adminList;
+	}
+
+	@Override
+	public int getTotalRecords() {
+		int count = 0;
+		try {
+			String sql = "SELECT count(*) as t FROM admin";
+			ResultSet rs = dbc.doQuery(sql, new Object[] {});
+			if (rs.next()) {
+				count = rs.getInt("t");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			dbc.close();
+		}
+		return count;
 	}
 
 }
