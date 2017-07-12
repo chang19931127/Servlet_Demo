@@ -5,3 +5,4 @@ servlet是 javaEE 体系中的一个规范，用于web工程
 # jsp demo # 
 就是一些jsp文件，在jsp文件中写java代码
 起始jsp文件就是servlet 而且映射关系就是文件名，也可以在web.xml中配置jsp的其他映射
+servlet会在servlet容器中通过第一次加载的时候被 java编译成class文件 然后在web中使用
