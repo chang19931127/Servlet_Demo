@@ -9,6 +9,8 @@
 <body>
 	<a href="admin?action=query">servlet 的操作 crud</a><br/>
 	<a href="adminDao?action=query">servlet Dao 之后的操作 crud</a><br/>
-	<a href="admin.html?action=pager">servlet Dao 之后的操作 page</a>
+	<a href="admin.html?action=pager">servlet Dao 之后的操作 page</a><br/>
+	<a href="servlet_demo/servletUPLOAD/upload.jsp">servlet 上传文件</a><br/>
+	<a href="servlet_demo/servletCODE/code.jsp">servlet 生成验证码</a>
 </body>
 </html>
